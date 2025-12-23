@@ -1,0 +1,2071 @@
+
+Operation Entebbe Choose Your Own Adventure
+/
+Can you design such a game for me?
+
+Dec 17
+
+Identified missing context and prepared clarifying inquiry.
+
+
+I'd be happy to help you design a game! However, I don't see any previous context about what type of game you're interested in. This appears to be the start of our conversation.
+
+Could you tell me more about what you have in mind? For example:
+
+What type of game are you thinking about? (board game, video game, card game, party game, etc.)
+What's the theme or setting?
+Who's the target audience?
+Are there any mechanics or games you'd like it to be similar to?
+Once you give me some details about what you're looking for, I can help design it for you!
+
+It is a text based game, choose your own adventure. The theme is Operation Thunderbolt in 1976. It takes place as an Air France flight is hijacked to Uganda. It lands in Entebbe airport. Israel then plans a daring rescue. Yoni Netanyahu leads the rescue.  Idi Amin is the President for Life of Uganda and he gives shelter to the hijackers. In a daring raid, almost all the hostages are rescued but Yoni Netanyahu is killed. This is to be a choose your own adventure game, in which players can choose to follow the experience of any character by answering multiple choice questions. Each answer leads to further description of results and another question and choice of answers, until that character's role is complete. If they make incorrect choices, the results can be disastrous. This game is similar to the games one designs in Twine.
+
+Dec 17
+
+Architected interactive historical game with branching narratives and multiple perspectives.
+
+
+
+
+
+I'll create an engaging choose-your-own-adventure game about Operation Thunderbolt for you! Let me start by reviewing some design principles to make this the best experience possible.
+
+Reading frontend design skill for best practices on creating an interactive web-based game
+
+Architected interactive historical adventure with branching narratives and atmospheric 1970s design.
+
+
+
+Now I'll create an immersive choose-your-own-adventure game about Operation Thunderbolt with a distinctive retro-dramatic aesthetic that captures the tension of 1976.
+
+
+4 steps
+
+Presented file
+
+Synthesized interactive narrative framework for historical rescue operation game.
+
+I've created Operation Thunderbolt, an interactive choose-your-own-adventure game about the 1976 Entebbe rescue mission.
+
+The game features:
+
+Three distinct character paths:
+
+The Commando - Experience the raid from the perspective of a Sayeret Matkal operator under Yoni Netanyahu's command
+The Hostage - Navigate the tense days of captivity and the dramatic rescue
+The Commander - Make strategic decisions as Major General Dan Shomron overseeing the entire operation
+Key features:
+
+Multiple branching narratives with real consequences based on historical accuracy
+Different outcomes ranging from complete success to partial failure or disaster
+Retro 1970s aesthetic with a "classified document" visual style
+Smooth transitions and immersive storytelling
+10+ different endings depending on your choices
+Each path explores different aspects of the operation, and your decisions directly impact the outcome. Some choices lead to the historical result (102 hostages saved, Yoni Netanyahu killed), while others explore alternative scenarios based on different tactical decisions.
+
+The game respects the gravity of this real historical event while creating an educational and engaging experience.
+
+Operation thunderbolt
+Code · HTML 
+How do I add questions and answers?
+
+Dec 18
+
+Analyzed game structure to explain adding interactive scenes.
+
+
+
+Great question! Let me explain how to add more questions and answers to the game. The structure is quite straightforward:
+
+How the Game Works
+Each "scene" is a <div> with:
+
+A unique ID (like id="commando-3")
+Narrative text
+Choice buttons that link to other scenes
+Adding New Scenes
+Here's the pattern:
+
+html
+<div id="your-scene-name" class="scene">
+    <p class="date-stamp">Date/Time/Location</p>
+    <div class="narrative">
+        <p>Your story text here...</p>
+        <p><strong>The question you're asking?</strong></p>
+    </div>
+    <div class="choices">
+        <button class="choice-btn" onclick="goToScene('next-scene-1')">Choice option 1</button>
+        <button class="choice-btn" onclick="goToScene('next-scene-2')">Choice option 2</button>
+        <button class="choice-btn" onclick="goToScene('next-scene-3')">Choice option 3</button>
+    </div>
+</div>
+Example: Adding a New Scene
+Let's say you want to add a pilot's perspective. Here's how:
+
+1. Add a new character card to the start screen:
+
+html
+<div class="character-card" onclick="startPath('pilot')">
+    <h3>The Pilot</h3>
+    <p>You fly one of the C-130 Hercules. Your mission: land in enemy territory without clearance, then get everyone out.</p>
+</div>
+2. Add the first scene:
+
+html
+<div id="pilot-1" class="scene">
+    <p class="date-stamp">July 3, 1976 - 22:45 hrs - Approaching Entebbe</p>
+    <div class="narrative">
+        <p>You grip the controls as your C-130 flies low over Lake Victoria. No lights. Radio silence. Behind you, commandos and a Mercedes sit ready in the cargo bay.</p>
+        <p>Your co-pilot whispers, "Tower will see us on radar any second."</p>
+        <p><strong>How do you approach the landing?</strong></p>
+    </div>
+    <div class="choices">
+        <button class="choice-btn" onclick="goToScene('pilot-2a')">Land lights-out on the runway. Maximum stealth.</button>
+        <button class="choice-btn" onclick="goToScene('pilot-2b')">Turn on landing lights at the last second. Safety first.</button>
+    </div>
+</div>
+3. Add consequence scenes:
+
+html
+<div id="pilot-2a" class="scene">
+    <div class="narrative">
+        <p>You keep all lights off and land by moonlight. It's dangerous, but the tower doesn't notice until you're already down...</p>
+        <p><strong>What's your next move?</strong></p>
+    </div>
+    <div class="choices">
+        <button class="choice-btn" onclick="goToScene('pilot-3a')">Drop the ramp immediately</button>
+        <button class="choice-btn" onclick="goToScene('pilot-3b')">Taxi closer to the terminal first</button>
+    </div>
+</div>
+Tips for Creating Good Branches
+Naming Convention: Use descriptive IDs like character-sceneNumber-letter
+commando-1 → commando-2a, commando-2b
+Each letter represents a different choice outcome
+Create Endpoints: Some scenes should end with outcomes:
+html
+<div class="outcome success">
+    <p><strong>SUCCESS</strong></p>
+    <p>Your landing was perfect...</p>
+</div>
+<button class="restart-btn" onclick="restart()">Begin Again</button>
+Link Scenes Together: Make sure every goToScene('scene-id') matches an actual scene's ID
+Test Your Paths: Click through each path to make sure all links work
+Would you like me to create an expanded version with more branching paths, or would you prefer a tutorial on how to edit the existing file to add your own scenes?
+
+Please add the following question and answers to the commando's perspective:
+
+Dec 18
+
+Identified incomplete request and flagged missing content.
+
+
+I'm ready to add the question and answers to the commando's perspective! However, it looks like your message got cut off - I don't see the actual question and answer options you want me to add.
+
+Please provide:
+
+The question/scenario you want to add
+The answer choices (usually 2-4 options)
+Where in the commando path you want it inserted (at the beginning, middle, or as a branch from an existing scene)
+What happens as a result of each choice
+For example, you might say something like:
+
+"After the commando lands, add a question: 'You see a Ugandan soldier approaching. What do you do?' with three choices:
+
+Take him out silently
+Let him pass and hope he doesn't notice
+Signal the team to scatter
+Choice 1 leads to success, Choice 2 leads to being discovered, Choice 3 causes confusion."
+
+Once you provide the details, I'll integrate them seamlessly into the game!
+
+Is there anyone from your commando group that you want to make sure is not forgotten?    Choices: 1. Yoni Netanyahu.   2. Sorin Hershko  3. Dora Bloch 4. Jean-Jacques Maimoni and Pasco Cohen.  Responses: 1. Yoni Netanyahu - Of course. Yoni gave his life for the success of the mission. Hopefully the popularity of the books about him and the fact that the mission was named for him posthumously will assure that his sacrifice is long remembered.  2. Sorin Hershko - A tragic fate, indeed. Hershko was about to be released from army service when he was sent on this mission. While clearing the airport, Hershko was shot in the neck by a Ugandan soldier, and was left paralyzed from the neck down. With hard work, he learned to use a wheelchair, and received a medal for his sacrifice. He even went back to Entebbe many years later, but to this day he pays the price for the mission's success.  3. Dora Bloch - Her story is very very sad, but she was a hostage, not a commando. Perhaps you can find out about her if you ask a hostage.  4. Jean-Jacques Maimoni and Pascal Cohen - Their fate was also very tragic, but they were hostages, not commandos. Why not ask a hostage to find out about them?   Place this at the end of the commando point of view.
+
+Show more
+Dec 18
+
+Architected branching narrative with memorial question and conditional redirects.
+
+
+
+
+I'll add this memorial question to the end of all commando paths. Let me update the game file:
+
+
+12 steps
+
+Presented file
+
+Orchestrated memorial responses distinguishing commandos from hostages.
+
+Perfect! I've added the remembrance question to the end of all commando paths. Here's what I implemented:
+
+New Feature Added:
+
+After completing any commando storyline (success, partial success, costly success, or failure), players now encounter a memorial question:
+
+"Is there anyone from your commando group that you want to make sure is not forgotten?"
+
+With 4 choices:
+
+Yoni Netanyahu - Provides information about how the mission was renamed in his honor and his lasting legacy
+Sorin Hershko - Tells his tragic story of being paralyzed from the neck down and his remarkable courage afterward
+Dora Bloch - Explains she was a hostage, not a commando, and offers a button to jump directly to the hostage perspective to learn her story
+Jean-Jacques Maimoni and Pasco Cohen - Similarly redirects to the hostage perspective to learn about these victims
+The choices for Dora Bloch and Maimoni/Cohen include a special button that lets players jump directly into the hostage storyline, creating a natural way to explore multiple perspectives and learn the full story of Operation Thunderbolt.
+
+This addition creates a more educational experience while honoring all those who were affected by the operation.
+
+Operation thunderbolt
+Code · HTML 
+Add to the end of the hostage perspective: Is there anyone from your fellow hostages that you want to make sure is not forgotten?    Choices:   1. Sorin Hershko  2. Dora Bloch 3. Jean-Jacques Maimoni and Pasco Cohen.  Responses: 1. Sorin Hershko - A tragic fate, indeed. but Hershko was a commando, not a hostage. You'd find out more about him if you asked a commando. 2. Dora Bloch - Her story is very very sad. An elderly woman, she choked on something during a meal and was taken to a hospital. She was ready to return to the other hostages, but a kind doctor, thinking he was sparing her a grisly fate, kept her in the hospital. She was still in the hospital when the rescue took place. Idi Amin was so furious at the humiliation he underwent that he ordered her dragged from her bed and executed.  3. Jean-Jacques Maimoni and Pascal Cohen - Their fate was also very tragic. When the Israeli commandos first burst into the airport terminal, the called out for all the hostages to stay down. Sadly, in the confusion, they stood up and were killed by friendly fire. Ida Borochovitch, another hostage, was killed by one of the hijackers in the firefight.   Place this at the end of the hostage point of view.
+
+Show more
+Dec 18
+
+Architected remembrance scene with three poignant hostage narratives.
+
+
+I'll add the remembrance question to the end of all hostage paths now:
+
+
+10 steps
+
+Presented file
+
+Integrated hostage remembrance question with historical context.
+
+Excellent! I've added the remembrance question to the end of all hostage paths. Here's what I implemented:
+
+New Feature Added:
+
+After completing any hostage storyline, players now encounter a memorial question:
+
+"Is there anyone from your fellow hostages that you want to make sure is not forgotten?"
+
+With 3 choices:
+
+Sorin Hershko - Explains he was a commando, not a hostage, and offers a button to jump directly to the commando perspective to learn his story
+Dora Bloch - Tells her heartbreaking story: the 75-year-old woman who choked on food, was taken to a hospital, and was murdered by Idi Amin's orders after the raid. Her body was never officially recovered. This is presented as one of the most haunting aspects of the operation.
+Jean-Jacques Maimoni and Pasco Cohen - Tells the tragic story of these two hostages (ages 19 and 52) who stood up during the confusion of the rescue and were killed by friendly fire. Also mentions Ida Borochovitch (56) who was killed by a hijacker during the firefight. Their deaths explain why the operation can never be called a "perfect" success.
+The game now creates a complete educational experience where players can:
+
+Experience the operation from different perspectives
+Learn about both the heroes and the victims
+Navigate between perspectives through the remembrance questions
+Understand the full human cost of Operation Thunderbolt
+The stories are told with appropriate gravity and historical detail, honoring those who didn't survive.
+
+Operation thunderbolt
+Code · HTML 
+Add to the end of the commander perspective: Who do you think was the biggest hero of this story?  Choices:   1. Yoni Netanyahu  2. Sorin Hershko 3. Michel Bacus 4. Ninnette Morenu.  Responses: 1. Yoni Netanyahu - Of course that is the obvious answer - Yoni gave up his life and all of his unfulfilled dreams. Yet I find some comfort in knowing that this was exactly the way Yoni wanted to live his life. In a 1963 letter, he wrote, " The trouble with the youth here is that their lives are meager in content. I ought to be ready at every moment of my life to confront myself and say—'This is what I've done." 2. Sorin Hershko - The  way Soren was shot and paralyzed by a Ugandan soldier meant that he was a hero every single day for the rest of his life, willing himself to go on, and achieving so much even in his incapacitated state. We gave him a medal and tried to give him all the veteran benefits he needed, but nothing can compensate him for what he lost.  3. Jean-Jacques Maimoni and Pascal Cohen - Their fate was also very tragic. When the Israeli commandos first burst into the airport terminal, the called out for all the hostages to stay down. Sadly, in the confusion, they stood up and were killed by friendly fire. Ida Borochovitch, another hostage, was killed by one of the hijackers in the firefight.   Place this at the end of the hostage point of view. 3. Michel Bakus - the pilot of the Air France plane refused to leave the hostages, even when the hijackers allowed him to. His example gave such inspiration to all of our hostages and showed them that they have many friends in the nations of the world.  4. Ninnette Morenu - Believe it or not, we might owe her more than anyone else! Because of her non-Jewish sounding name, the hijackers allowed her to leave with the non-Jewish passengers. She had carefully observed the layout of the terminal, the positioning of the guards and many crucial details. She was able to sketch all that for the commandos and her information made the military option a realistic choice. Years later, her son Emanuel was one of the most decorated and capable Israeli soldiers ever. Sadly and heroically he gave his life in battle for his people. Some of his missions are still too classified to reveal to the public.   After experiencing the memorial page, give players the option to choose another answer, instead of starting from the beginning.
+
+Show more
+Dec 18
+
+Orchestrated hero question integration with corrected details and navigation flow.
+
+
+
+
+I'll add the hero question to the end of all commander paths:
+
+
+10 steps
+
+Presented file
+
+Orchestrated hero narrative additions across multiple story perspectives.
+
+Perfect! I've added the hero question to the end of all commander paths. Here's what I implemented:
+
+New Feature Added:
+
+After completing any commander storyline, players now encounter a reflection question:
+
+"Who do you think was the biggest hero of this story?"
+
+With 4 choices:
+
+Yoni Netanyahu - Includes his powerful 1963 letter quote about living a life of meaning. Reflects on how he lived fully in 30 years and how the mission was renamed Operation Yonatan in his honor.
+Sorin Hershko - Discusses his ongoing heroism of living with paralysis every day, his rehabilitation, advocacy work, and eventual return to Entebbe. Emphasizes that heroism isn't just about what you die for, but what you live for.
+Michel Bacos - Tells the story of the French Air France captain who refused to leave his passengers even when he could have been released. His solidarity gave hope to the hostages and showed international support.
+Ninnette Morenu - Reveals how her detailed intelligence gathering after being released made the rescue operation feasible. Also mentions her son Emanuel, who became a highly decorated soldier and gave his life for Israel.
+Key Enhancement: Each hero page now includes a "Consider Another Hero" button that takes players back to the hero question, allowing them to explore all four stories without restarting the entire game. This creates a more educational experience where players can learn about multiple heroes in one session.
+
+The game now has complete remembrance/reflection questions for all three perspectives, creating a comprehensive educational experience about Operation Thunderbolt!
+
+Operation thunderbolt
+Code · HTML 
+Also give the option of choosing another answer at the end of the commando and hostage perspectives.
+
+Dec 18
+
+Strategized adding choice buttons across commando and hostage scenes.
+
+
+
+I'll add the "Consider Another Answer" button to all the commando and hostage remembrance scenes:
+
+
+16 steps
+
+Presented file
+
+Implemented alternative selection feature across multiple game perspectives.
+
+Perfect! I've added the "Remember Another Person" option to all the commando and hostage remembrance scenes. Now all three perspectives have the same navigation flexibility:
+
+Enhanced Navigation:
+
+Commando Perspective:
+
+After reading about Yoni Netanyahu → can choose another person or restart
+After reading about Sorin Hershko → can choose another person or restart
+After reading about Dora Bloch → can choose another person, jump to hostage perspective, or restart
+After reading about Maimoni/Cohen → can choose another person, jump to hostage perspective, or restart
+Hostage Perspective:
+
+After reading about Sorin Hershko → can choose another person, jump to commando perspective, or restart
+After reading about Dora Bloch → can choose another person or restart
+After reading about Maimoni/Cohen → can choose another person or restart
+Commander Perspective:
+
+All four hero stories have the "Consider Another Hero" option
+This creates a much more educational experience where players can:
+
+Explore multiple remembrance stories in one session
+Jump between perspectives when stories cross over
+Learn about all the heroes and victims without replaying the entire game
+The game now functions as a comprehensive educational tool about Operation Thunderbolt while maintaining its engaging choose-your-own-adventure format!
+
+Operation thunderbolt
+Code · HTML 
+Replace  "has been diverted to Entebbe Airport in Uganda, where President Idi Amin provides shelter to the hijackers."  with "has been diverted first to Libya and then to Entebbe Airport in Uganda, where President Idi Amin provides shelter to the hijackers.    Replace "Israel faces an impossible choice. Until Lieutenant Colonel Yonatan "Yoni" Netanyahu proposes the unthinkable—a daring raid 2,500 miles from home." with "Israel faces an impossible choice - until, armed with overhead pictures of the airport taken by a spy, information from released hostages, and brainstorming from their best military minds, they are ready to do the unthinkable—a daring raid 2,500 miles from home."
+
+10:45 AM
+
+Identified two text replacements for game start screen.
+
+I'll make those two replacements in the start screen:
+
+
+6 steps
+
+Presented file
+
+Refined historical accuracy by enriching narrative details.
+
+
+Done! I've made both replacements in the start screen. The game now:
+
+Mentions the Libya stopover: "has been diverted first to Libya and then to Entebbe Airport in Uganda"
+Credits multiple intelligence sources: "Israel faces an impossible choice—until, armed with overhead pictures of the airport taken by a spy, information from released hostages, and brainstorming from their best military minds, they are ready to do the unthinkable—a daring raid 2,500 miles from home."
+These changes provide a more historically accurate account of how the flight was diverted and how Israel gathered the intelligence and planning that made the rescue operation possible.
+
+Operation thunderbolt
+Code · HTML 
+After "The terminal is 300 meters ahead. Two sentries stand near the entrance," make the two choices: 1. Eliminate the armed sentries so that they cannot attack from behind. 2. Ignore them - Yoni's deputy recalls from his time in Uganda that sentries would stand in this fashion as a type of salute.  Make the answers to these choices: 1. This is actually what happened. Yoni tried to shoot the sentries with a silenced gun, but missed one and only succeeded in wounding the other. A commando from the Land Rover behind him managed to eliminate both, but with an unsilenced weapon. The raiding party was afraid that they had given away the element of surprise, but that doesn't seem to have been the case.  2. This option wasn't tried - we will never know.
+
+10:56 AM
+
+Architected branching narrative with historical military decision outcomes.
+
+
+
+
+I'll update the choices and add the new response scenes for the sentry encounter:
+
+
+10 steps
+
+Presented file
+
+Verified narrative structure integrity and scene completion logic.
+
+
+
+
+
+
+
+
+Perfect! I've updated the commando perspective with the new sentry encounter. Here's what changed:
+
+Updated Sentry Encounter:
+
+Now all three commando paths (whether you studied the layout, checked your weapons, or talked to Yoni) converge at the same critical decision point when approaching the terminal:
+
+Two Choices:
+
+Eliminate the armed sentries so that they cannot attack from behind
+Describes what actually happened historically
+Yoni tried with a silenced weapon but missed/wounded
+A commando from behind finished the job with an unsilenced weapon
+The team feared they'd lost surprise, but the assault still succeeded
+Leads to a successful mission outcome
+Ignore them - Yoni's deputy recalls that sentries would stand this way as a salute
+Acknowledges this wasn't tried historically
+Explores the "what if" scenario
+Explains we can never know if it would have worked
+Ends with a "Historical Speculation" outcome that honors the actual choices made
+This addition makes the game more historically accurate by:
+
+Including the actual complication with the silenced weapons
+Showing that real operations are messy, not perfect
+Acknowledging the split-second decisions soldiers had to make
+Honoring both what happened and what might have been
+The educational value is enhanced by showing players that even successful operations involve complications and uncertainty.
+
+Operation thunderbolt
+Code · HTML 
+At the end of the opening screen, add,  "Israel managed to get the deadline extended until July 4, 1976, which happened to also be the Bicentennial of the United States. On that day, they finally had enough information, and the raid took place."
+
+11:05 AM
+
+Pinpointed optimal insertion point for deadline narrative.
+
+I'll add that information to the end of the opening screen narrative:
+
+
+4 steps
+
+Presented file
+
+Integrated historical deadline detail into narrative opening.
+
+Done! I've added the deadline extension information to the opening screen. The narrative now includes:
+
+"Israel managed to get the deadline extended until July 4, 1976, which happened to also be the Bicentennial of the United States. On that day, they finally had enough information, and the raid took place."
+
+This addition:
+
+Clarifies the timeline of the operation
+Shows that Israel negotiated for more time
+Adds the interesting historical detail that the raid occurred on America's 200th birthday
+Emphasizes that the operation required extensive intelligence gathering before it could proceed
+The opening screen now provides a more complete picture of the events leading up to the rescue mission.
+
+Operation thunderbolt
+Code · HTML 
+how do I publish this?
+
+11:12 AM
+
+Synthesized multiple publication pathways for game distribution.
+
+
+
+Great question! You have several options for publishing your Operation Thunderbolt game:
+
+Option 1: Free Website Hosting (Easiest)
+GitHub Pages (Free):
+
+Create a free account at github.com
+Create a new repository (name it something like "operation-thunderbolt")
+Upload your operation-thunderbolt.html file
+Rename the file to index.html (important!)
+Go to Settings → Pages → Select "main" branch → Save
+Your game will be live at: https://yourusername.github.io/operation-thunderbolt
+Netlify Drop (Even Easier):
+
+Go to app.netlify.com/drop
+Drag and drop your HTML file
+Get an instant live link (like https://random-name-12345.netlify.app)
+Free, no account needed for basic hosting
+Option 2: Share the File Directly
+Email the HTML file to people
+Share via Google Drive, Dropbox, or OneDrive
+Recipients can just open it in their browser (double-click the file)
+Works offline, no internet needed to play
+Option 3: Use a Website You Already Have
+If you have a website or blog:
+
+Upload the HTML file to your web hosting
+Link to it from your main site
+Example: yourwebsite.com/operation-thunderbolt.html
+Option 4: Educational Platforms
+If this is for classroom use:
+
+Google Classroom: Upload as a material or assignment
+Canvas/Blackboard: Add to course content
+Google Sites: Embed using custom HTML
+My Recommendation
+For the easiest, fastest publishing:
+
+Go to Netlify Drop (no account needed)
+Drag your file in
+Get your link instantly
+Share the link with anyone
+Would you like me to help you with any of these options, or do you have a specific platform in mind?
+
+does claude itself have a publishing option?
+
+11:13 AM
+
+Assessed Claude's publishing capabilities and alternative solutions.
+
+
+
+
+
+
+
+Unfortunately, Claude does not have a built-in publishing or hosting feature. Claude can create files (like your game) and let you download them, but it doesn't host websites or provide public URLs.
+
+What You Can Do from Claude:
+Download the File:
+
+Click on the file I shared above (operation-thunderbolt.html)
+You should see a download button or option to save it
+Save it to your computer
+Then Use One of These Publishing Options:
+
+Fastest (2 minutes):
+
+Go to netlify.com/drop
+Drag the downloaded file onto the page
+Get an instant public URL
+Most Permanent (Free):
+
+Upload to GitHub Pages (I can guide you step-by-step if needed)
+You'll get a permanent URL like yourname.github.io/operation-thunderbolt
+Future Feature Possibility
+Claude's features are constantly evolving. While there's no publishing feature now, you can always check:
+
+The latest product updates at claude.ai
+Or ask me to search for new features: "Search for Claude publishing features"
+Would you like me to:
+
+Walk you through the GitHub Pages setup step-by-step?
+Explain the Netlify Drop process in more detail?
+Search the web for any new Claude features I might not know about?
+Could you please walk me through the GitHub Pages setup step-by-step?
+
+11:15 AM
+
+Architected beginner-friendly GitHub Pages setup instructions.
+
+Absolutely! I'll walk you through publishing your game on GitHub Pages step-by-step.
+
+Step-by-Step GitHub Pages Setup
+Step 1: Create a GitHub Account
+Go to github.com
+Click "Sign up" in the top right
+Enter your email, create a password, choose a username
+Verify your email address
+You can skip the personalization questions or answer them quickly
+Step 2: Create a New Repository
+Once logged in, click the green "New" button (or the "+" in top right → "New repository")
+Fill in the details:
+Repository name: operation-thunderbolt (or any name you like)
+Description (optional): "Interactive choose-your-own-adventure game about Operation Entebbe 1976"
+Public (must be selected for free GitHub Pages)
+Check ✓ "Add a README file"
+Click "Create repository"
+Step 3: Upload Your HTML File
+You should now be on your repository page
+Click "Add file" → "Upload files"
+Drag and drop the operation-thunderbolt.html file into the upload area
+Or click "choose your files" and select it from your computer
+IMPORTANT: After uploading, you need to rename it
+Click on the uploaded file name (operation-thunderbolt.html)
+Click the pencil icon (Edit this file) in the top right
+Change the filename from operation-thunderbolt.html to index.html
+Scroll down and click "Commit changes"
+Click "Commit changes" again in the popup
+Step 4: Enable GitHub Pages
+Click on "Settings" (top menu of your repository)
+In the left sidebar, click "Pages" (under "Code and automation")
+Under "Source", select "Deploy from a branch"
+Under "Branch":
+Select "main" from the first dropdown
+Select "/ (root)" from the second dropdown
+Click "Save"
+Wait 1-2 minutes for deployment
+Step 5: Get Your Published Link
+Stay on the Pages settings page (or go back to Settings → Pages)
+After a minute or two, refresh the page
+You'll see a message at the top: "Your site is live at https://yourusername.github.io/operation-thunderbolt/"
+Click that link to see your published game!
+This is your permanent URL - share it with anyone!
+Troubleshooting
+If you don't see the "Your site is live" message:
+
+Wait 2-3 minutes and refresh the page
+Make sure the file is named index.html (not operation-thunderbolt.html)
+Make sure you selected "main" branch and "/ (root)"
+If the page shows "404" or doesn't load:
+
+Check that your file is named exactly index.html (case-sensitive, all lowercase)
+Wait a few more minutes - GitHub Pages can take up to 10 minutes to deploy
+If you want to update the game later:
+
+Go to your repository
+Click on index.html
+Click the pencil icon (Edit)
+Make your changes
+Scroll down and click "Commit changes"
+The site will update automatically in 1-2 minutes
+Your Final URL Format
+https://YOUR-GITHUB-USERNAME.github.io/operation-thunderbolt/
+
+For example:
+
+If your username is teacher123, your URL will be:
+https://teacher123.github.io/operation-thunderbolt/
+Need help with any of these steps? Just let me know which step you're on and I'll provide more detailed guidance!
+
+I've uploaded my operation thunderbolt html file to github but I'm not seeing any pencil icon to change its name
+
+11:41 AM
+
+Diagnosed file navigation issue and formulated clarification steps.
+
+
+
+No problem! Let me clarify how to rename the file. Here's what to do:
+
+How to Rename Your File on GitHub
+Method 1: Through the File View (Recommended)
+Navigate to your repository's main page
+Click on the repository name at the top to go back to the main view
+You should see your file listed: operation-thunderbolt.html
+Click on the filename operation-thunderbolt.html
+This will open the file view (you'll see the HTML code)
+Look for the pencil icon
+It's in the top-right area, above the code
+It might say "Edit this file" when you hover over it
+It's next to a trash can icon and a "Raw" button
+Click the pencil icon
+At the very top of the page, you'll see the filename in an editable box
+Change operation-thunderbolt.html to index.html
+Commit the change
+Scroll down
+Click the green "Commit changes" button
+Confirm in the popup
+Method 2: Delete and Re-upload (If pencil icon still doesn't appear)
+If you still can't find the pencil icon:
+
+Delete the current file:
+Click on operation-thunderbolt.html in your repository
+Click the trash can icon (top right)
+Scroll down and click "Commit changes"
+Re-upload with correct name:
+Click "Add file" → "Upload files"
+Before uploading, rename the file on your computer to index.html
+Then drag the index.html file to upload
+Commit the upload
+Method 3: Use GitHub's Web Interface to Create New File
+Click "Add file" → "Create new file"
+In the filename box at the top, type: index.html
+Copy all the code from your downloaded operation-thunderbolt.html file
+Paste it into the big text box
+Scroll down and click "Commit new file"
+Delete the old operation-thunderbolt.html file
+Quick question to help me guide you better:
+
+When you click on operation-thunderbold.html in your repository, do you see the HTML code, or does it try to render/display the page?
+Let me know what you see and I can give you more specific guidance!
+
+I successfully change the name of the file to index.html. Now is it published? If it is, how do I share it?
+
+11:50 AM
+
+Charted next steps for enabling and sharing published site.
+
+
+Excellent! You've completed a crucial step. Now let's get it published and find your shareable link.
+
+Next Steps to Publish
+Step 1: Enable GitHub Pages
+Click on "Settings" (in the top menu of your repository)
+Scroll down the left sidebar and click on "Pages" (under "Code and automation")
+Under "Source" (or "Build and deployment"):
+Select "Deploy from a branch"
+Under "Branch": Select "main" (or "master")
+Select "/ (root)"
+Click "Save"
+Wait 1-3 minutes for GitHub to build your site
+Step 2: Get Your Published Link
+Stay on the Settings → Pages screen (or go back to it)
+Refresh the page after a couple minutes
+You should see a message at the top that says:
+✅ "Your site is live at https://YOUR-USERNAME.github.io/operation-thunderbolt/"
+Click that link to test your game!
+How to Share Your Game
+Once you see "Your site is live," you can share that URL with anyone:
+
+Your URL will be:
+
+https://YOUR-GITHUB-USERNAME.github.io/operation-thunderbolt/
+Ways to Share:
+
+Copy and paste the link in emails
+Share on social media
+Add to your syllabus or course materials
+Send in a text message
+QR code (you can generate one from the URL)
+Troubleshooting
+If you don't see "Your site is live" message:
+
+Make sure you clicked "Save" after selecting the branch
+Wait 5-10 minutes (sometimes it takes a bit longer)
+Refresh the Settings → Pages screen
+If the link shows a 404 error:
+
+Double-check that your file is named exactly index.html (all lowercase)
+Wait a few more minutes and try again
+Can you let me know:
+
+Do you see the Settings tab in your repository?
+Have you found the Pages section yet?
+Once you get your live link, test it out and let me know if the game works! 🎉
+
+How would I add pictures to a game I already published on Github?
+
+4:18 PM
+
+Architected step-by-step guide for integrating images into published game.
+
+
+
+Great question! Adding pictures to your game involves two steps: uploading the images to GitHub and then updating your HTML code to display them.
+
+Step-by-Step: Adding Pictures
+Step 1: Upload Your Images to GitHub
+Go to your repository on GitHub
+Click "Add file" → "Upload files"
+Drag and drop your image files (JPG, PNG, GIF)
+You can upload multiple images at once
+Good naming practice: yoni-netanyahu.jpg, entebbe-terminal.jpg, etc.
+Scroll down and click "Commit changes"
+Your images are now stored at:
+
+https://YOUR-USERNAME.github.io/operation-thunderbolt/image-name.jpg
+Step 2: Update Your HTML to Display Images
+Go to your repository
+Click on index.html
+Click the pencil icon to edit
+Add image code where you want pictures to appear
+Where to Add Images in Your Game
+Here are some effective places to add images:
+
+Option 1: Add to the Title Area (Opening Screen)
+Find this section in your code:
+
+html
+<h1 class="title">Operation Thunderbolt</h1>
+<p class="subtitle">Entebbe, 1976</p>
+Add an image right after:
+
+html
+<h1 class="title">Operation Thunderbolt</h1>
+<p class="subtitle">Entebbe, 1976</p>
+<img src="entebbe-airport.jpg" alt="Entebbe Airport" style="width: 100%; max-width: 600px; margin: 20px auto; display: block; border: 4px solid var(--accent);">
+Option 2: Add to Character Cards
+Find a character card section like this:
+
+html
+<div class="character-card" onclick="startPath('commando')">
+    <h3>The Commando</h3>
+    <p>You are part of the elite Sayeret Matkal unit...</p>
+</div>
+Add an image inside:
+
+html
+<div class="character-card" onclick="startPath('commando')">
+    <img src="commando-image.jpg" alt="Israeli Commando" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 15px;">
+    <h3>The Commando</h3>
+    <p>You are part of the elite Sayeret Matkal unit...</p>
+</div>
+Option 3: Add to Story Scenes
+Find any scene's narrative section:
+
+html
+<div class="narrative">
+    <p>The C-130 Hercules transport plane vibrates...</p>
+</div>
+Add an image:
+
+html
+<div class="narrative">
+    <img src="c130-hercules.jpg" alt="C-130 Hercules" style="width: 100%; max-width: 500px; margin: 0 auto 20px; display: block; border: 3px solid var(--accent);">
+    <p>The C-130 Hercules transport plane vibrates...</p>
+</div>
+Option 4: Add to Remembrance Pages
+Add historical photos of the people being remembered:
+
+html
+<div id="commando-remember-yoni" class="scene">
+    <div class="narrative">
+        <img src="yoni-netanyahu.jpg" alt="Yoni Netanyahu" style="width: 200px; height: 200px; object-fit: cover; margin: 0 auto 20px; display: block; border: 4px solid var(--accent); border-radius: 10px;">
+        <p><strong>Yoni Netanyahu</strong></p>
+        <p>Of course. Yoni gave his life...</p>
+    </div>
+</div>
+Complete Example: Let Me Update Your Game
+Would you like me to:
+
+Create an updated version of your HTML file with image placeholders?
+Show you exactly which images would work well in which scenes?
+Add styling to make the images look professional and consistent?
+I can create a new version with spots for images like:
+
+Historical photos of Yoni Netanyahu, the commandos, or hostages
+Pictures of the C-130 Hercules plane
+Photos of Entebbe Airport
+The old terminal building
+Maps showing the route from Israel to Uganda
+Just let me know what kinds of images you'd like to add, and I'll show you exactly where to put them in the code!
+
+Quick Tip: Finding Historical Images
+For historical accuracy, you might search for:
+
+"Operation Entebbe 1976" (public domain/historical photos)
+"Yoni Netanyahu"
+"Entebbe Airport 1976"
+"C-130 Hercules military"
+Make sure images are:
+
+Public domain or properly licensed
+Educational use allowed
+Credited if required
+Would you like me to create an updated version with image placeholders ready to go?
+
+yes
+
+5:27 PM
+
+Strategically positioning images throughout the game.
+
+
+
+
+Perfect! I'll create an updated version with image placeholders strategically placed throughout the game. You can then upload the images you want to use.
+
+
+30 steps
+
+Presented 2 files
+
+Orchestrated clear instructional framework.
+
+Perfect! I've created an updated version of your game with image placeholders and a complete guide. Here's what I've given you:
+
+📁 TWO FILES:
+IMAGE-GUIDE.md - Complete instructions on which images to upload
+operation-thunderbolt-with-images.html - Your updated game with 12 strategic image placements
+🎯 QUICK START:
+Step 1: Find & Prepare Images
+Read the IMAGE-GUIDE to see which 12 images you need
+Download historical photos (I've included search terms)
+Rename them exactly as specified (e.g., yoni-netanyahu.jpg)
+Step 2: Upload Everything to GitHub
+Go to your repository
+Click "Add file" → "Upload files"
+Upload ALL your image files (.jpg)
+Click "Commit changes"
+Step 3: Replace Your Current Game
+Delete your current index.html
+Upload the new operation-thunderbolt-with-images.html
+Rename it to index.html
+Commit changes
+Step 4: View Your Enhanced Game
+Wait 2-3 minutes
+Visit your GitHub Pages URL
+Images should now appear throughout the game!
+📸 WHERE IMAGES APPEAR:
+✅ Opening screen - Hero image of Entebbe ✅ Character cards - Photos for each perspective ✅ Story scenes - C-130 plane, terminal, war room ✅ Remembrance pages - Portraits of Yoni, Sorin, Dora, Michel
+
+💡 IMPORTANT NOTES:
+The game works fine WITHOUT images if you can't find them all
+Filenames must match EXACTLY (case-sensitive!)
+Look for "public domain" or "creative commons" historical photos
+The IMAGE-GUIDE has detailed search terms to help you find photos
+Questions? Just ask! I can help you:
+
+Find specific images
+Remove certain image placeholders if needed
+Troubleshoot upload issues
+Adjust image sizes or positioning
+Image guide
+Document · MD 
+Operation thunderbolt with images
+Code · HTML 
+I renamed my images and changed the extensions to .jpg. I uploaded them to GitHub but even after refreshing for 5 minutes, they do not appear as there
+
+1:05 PM
+
+Diagnosed image upload issues and mapped troubleshooting steps.
+
+
+Let me help you troubleshoot this. There are a few common reasons images might not show up:
+
+Quick Diagnostic Questions:
+First, let's verify the upload worked:
+
+Go to your repository main page (github.com/YOUR-USERNAME/operation-thunderbolt)
+Do you see your image files listed alongside your index.html file?
+You should see: index.html, yoni-netanyahu.jpg, c130-hercules.jpg, etc.
+If YES - Images are there:
+
+The problem is likely with the new HTML file not being uploaded yet
+OR a browser caching issue
+If NO - Images are NOT listed:
+
+The upload didn't complete successfully
+Need to try uploading again
+Solution Path 1: If Images ARE Visible in Repository
+You need to update your index.html file:
+
+Download the operation-thunderbolt-with-images.html file I provided
+Go to your repository
+Click on index.html
+Click the pencil icon (edit)
+Select all the old code (Ctrl+A or Cmd+A)
+Delete it
+Open operation-thunderbolt-with-images.html on your computer
+Copy all the code from that file
+Paste it into the GitHub editor
+Scroll down and click "Commit changes"
+Wait 2-3 minutes
+Hard refresh your published site (Ctrl+Shift+R or Cmd+Shift+R)
+Solution Path 2: If Images are NOT Visible in Repository
+Let's try uploading again:
+
+Go to your repository main page
+Click "Add file" → "Upload files"
+Drag all your image files into the upload box
+Wait until you see all filenames listed with green checkmarks
+Scroll down to the "Commit changes" section
+Type a commit message like "Adding game images"
+Click "Commit changes"
+Wait 30 seconds, then refresh the repository page
+You should now see all image files listed
+Solution Path 3: Browser Cache Issue
+If images are in the repository AND you updated index.html:
+
+Clear your browser cache:
+Chrome/Edge: Ctrl+Shift+Delete (Cmd+Shift+Delete on Mac)
+Select "Cached images and files"
+Click "Clear data"
+Hard refresh your site:
+Windows: Ctrl+Shift+R
+Mac: Cmd+Shift+R
+Try opening in an Incognito/Private window
+Quick Check: Can You Answer These?
+To help me help you better:
+
+When you go to github.com/YOUR-USERNAME/operation-thunderbolt, do you see .jpg files listed?
+Have you replaced your index.html with the new version I provided?
+Are you viewing your GitHub Pages site (https://username.github.io/...) or the GitHub repository page?
+Let me know what you see and I'll give you specific next steps!
+
+How do I Download the operation-thunderbolt-with-images.html file
+
+1:09 PM
+
+Formulated download instructions for shared file.
+
+Great question! Here's how to download the file I shared:
+
+How to Download from Claude:
+Scroll up in our conversation to where I shared the files
+Look for the file card that says "operation-thunderbolt-with-images"
+Click on the file (or look for a download icon/button)
+It should download to your computer's Downloads folder
+Can't Find It? Here's an Alternative:
+I can create it again and make it easier to access. Let me do that now:
+
+
+2 steps
+
+Presented file
+
+Reoffered file and marshaled supplementary guidance.
+
+Perfect! I've shared the file again above. Here's what to do:
+
+Download Steps:
+You should see above:
+
+A file card labeled "operation-thunderbolt-with-images"
+It should have a download button or icon
+Click on it to download!
+
+Still Having Trouble?
+If you don't see a download option, here's what you can do:
+
+OPTION 1: Copy/Paste Method (Easiest)
+
+I can show you the entire HTML code
+You copy it
+Paste it into a text editor (Notepad, TextEdit, etc.)
+Save it as operation-thunderbolt-with-images.html
+Would you like me to show you the code so you can copy/paste it?
+
+OPTION 2: I Can Also Share the IMAGE-GUIDE Again
+
+
+Presented file
+
+Deliberated file delivery methods and alternative solutions.
+
+There you go! Both files are now shown above this message:
+
+operation-thunderbolt-with-images.html (the updated game)
+IMAGE-GUIDE.md (instructions for images)
+Let me know if:
+
+You can't see download buttons on these files
+You'd prefer I paste the code directly so you can copy it
+You need any other help!
+Operation thunderbolt with images
+Code · HTML 
+Image guide
+Document · MD 
+I'm at the index.html page but I don't see the pencil icon
+
+1:19 PM
+
+Investigated icon visibility and devised alternative solutions.
+
+
+
+No problem! Let me help you find it. The location of the pencil icon can be tricky:
+
+Where to Look for the Pencil Icon:
+When you click on index.html in your repository, you should see:
+
+The filename at the top: index.html
+A toolbar with several buttons/icons on the right side, including:
+📋 Copy (copy icon)
+✏️ Edit (pencil icon) - this is what you need!
+🗑️ Delete (trash can)
+Raw button
+Blame button
+The pencil might say "Edit this file" when you hover over it.
+
+Alternative Method: Delete and Re-Upload
+If you still can't find the pencil icon, here's an easier way:
+
+Step 1: Delete Current index.html
+On the index.html page, look for the trash can icon 🗑️
+Click it
+Scroll down and click "Commit changes"
+Confirm by clicking "Commit changes" again
+Step 2: Upload the New File
+Go back to your repository main page
+Click "Add file" → "Create new file"
+In the filename box at the top, type: index.html
+Now I'll give you the code to paste...
+Would you like me to:
+Option A: Paste the entire HTML code here so you can copy it and paste into GitHub's "Create new file"?
+
+Option B: Take a screenshot showing exactly where the pencil icon should be?
+
+Option C: Try the delete-and-recreate method (I'll walk you through it)?
+
+Which option sounds easiest for you?
+
+I found the pencil icon and selected all the all code, but when I press delete, it doesn't delete
+
+1:26 PM
+
+Diagnosed interface malfunction and devised troubleshooting alternatives.
+
+
+
+Ah, that's a frustrating issue! Let me give you some solutions:
+
+Quick Fixes:
+Try These:
+Use Backspace instead of Delete
+After selecting all (Ctrl+A or Cmd+A)
+Press Backspace key instead of Delete
+OR just start typing - it should replace the selection
+Click inside the text box first
+Click anywhere inside the code editor box
+Then Ctrl+A (or Cmd+A on Mac) to select all
+Then Backspace or start typing
+Manual method:
+Click at the very beginning of the code
+Hold Shift and click at the very end
+Then Backspace
+Easiest Solution: Use This Method Instead
+Since you're having trouble, let's use GitHub's replace feature:
+
+Step 1: Cancel Current Edit
+Click the "Cancel" button (should be near bottom)
+OR just close/go back to repository
+Step 2: Use "Edit File" Feature with Replacement
+Go back to index.html page
+Click the pencil icon again
+Don't select anything yet
+Just click at the very top of the code editor (before the first character)
+I'll give you the new code to paste
+When you paste, it should ask if you want to replace - say YES
+OR: Let Me Give You The Code Right Now
+Tell me when you're ready and I'll paste the complete HTML code in our chat. Then you can:
+
+Copy it from here
+Go to the GitHub editor
+Ctrl+A to select all
+Ctrl+V to paste (this will replace everything)
+Ready for me to paste the code? Just say "yes" and I'll share it!
+
+yes
+
+1:30 PM
+
+Prepared to deliver complete HTML code for copying.
+
+
+Perfect! Here's the complete code. Copy everything from <!DOCTYPE html> to </html>:
+
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation Thunderbolt: A Choice-Driven Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400,700&family=Crimson+Text:wght@600,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #1a1612;
+            --bg-secondary: #2d2519;
+            --text-primary: #e8dcc8;
+            --text-secondary: #b8a890;
+            --accent: #d4a574;
+            --danger: #c84630;
+            --paper: #f4ead5;
+        }
+
+        body {
+            font-family: 'Courier Prime', monospace;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,0.1) 2px,
+                    rgba(0,0,0,0.1) 4px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .game-frame {
+            background: var(--paper);
+            box-shadow: 
+                0 0 0 8px var(--bg-secondary),
+                0 0 0 12px var(--accent),
+                0 30px 60px rgba(0,0,0,0.5),
+                inset 0 0 100px rgba(0,0,0,0.05);
+            padding: 60px;
+            position: relative;
+            color: #2d2519;
+        }
+
+        .game-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(212, 165, 116, 0.03) 2px,
+                    rgba(212, 165, 116, 0.03) 4px
+                );
+            pointer-events: none;
+        }
+
+        .stamp {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            width: 120px;
+            height: 120px;
+            border: 4px solid var(--danger);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-15deg);
+            opacity: 0.4;
+            font-family: 'Crimson Text', serif;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+            color: var(--danger);
+            line-height: 1.2;
+        }
+
+        .title {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            color: var(--bg-primary);
+            text-shadow: 2px 2px 0 rgba(212, 165, 116, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .scene {
+            display: none;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .scene.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .narrative {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .narrative p {
+            margin-bottom: 15px;
+        }
+
+        .narrative strong {
+            font-weight: 700;
+            color: var(--bg-primary);
+        }
+
+        .date-stamp {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            text-align: right;
+            font-style: italic;
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .choice-btn {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 2px solid var(--accent);
+            padding: 18px 25px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::before {
+            content: '▸ ';
+            margin-right: 10px;
+            transition: margin-right 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateX(5px);
+            box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .choice-btn:hover::before {
+            margin-right: 15px;
+        }
+
+        .character-select {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .character-card {
+            background: var(--bg-secondary);
+            border: 3px solid var(--accent);
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border-color: var(--text-primary);
+        }
+
+        .character-card h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .character-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .outcome {
+            background: var(--bg-secondary);
+            border-left: 5px solid var(--danger);
+            padding: 20px;
+            margin: 20px 0;
+            color: var(--text-primary);
+        }
+
+        .outcome.success {
+            border-left-color: #6b8e23;
+        }
+
+        .restart-btn {
+            background: var(--danger);
+            color: var(--paper);
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .restart-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: scale(1.05);
+        }
+
+        .story-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+            border: 4px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .character-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent);
+        }
+
+        .portrait-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 4px solid var(--accent);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .scene-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            display: block;
+            border: 3px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        @media (max-width: 768px) {
+            .game-frame {
+                padding: 40px 30px;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .character-select {
+                grid-template-columns: 1fr;
+            }
+
+            .story-image, .scene-image {
+                max-width: 100%;
+            }
+
+            .portrait-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="game-frame">
+            <div class="stamp">TOP SECRET<br>JUNE 1976</div>
+
+            <!-- START SCREEN -->
+            <div id="start" class="scene active">
+                <h1 class="title">Operation Thunderbolt</h1>
+                <p class="subtitle">Entebbe, 1976</p>
+                
+                <!-- Main hero image - Upload as: entebbe-hero.jpg -->
+                <img src="entebbe-hero.jpg" alt="Entebbe Airport 1976" class="story-image">
+                
+                <div class="narrative">
+                    <p><strong>June 27, 1976.</strong> Air France Flight 139 has been hijacked by Palestinian and German terrorists. The plane, with 248 passengers and crew, has been diverted first to Libya and then to Entebbe Airport in Uganda, where President Idi Amin provides shelter to the hijackers.</p>
+                    <p>The terrorists separate Israeli and Jewish passengers from others. Non-Jewish hostages are released, but 106 remain captive, along with the Air France crew who refuse to abandon them.</p>
+                    <p>The hijackers demand the release of 53 militants imprisoned in Israel and other countries. The deadline: <strong>July 1st</strong>. The consequence: execution of hostages.</p>
+                    <p>Israel faces an impossible choice—until, armed with overhead pictures of the airport taken by a spy, information from released hostages, and brainstorming from their best military minds, they are ready to do the unthinkable—a daring raid 2,500 miles from home.</p>
+                    <p>Israel managed to get the deadline extended until July 4, 1976, which happened to also be the Bicentennial of the United States. On that day, they finally had enough information, and the raid took place.</p>
+                    <p><strong>Choose your perspective in this historic rescue mission.</strong></p>
+                </div>
+                <div class="character-select">
+                    <div class="character-card" onclick="startPath('commando')">
+                        <!-- Upload as: commando-card.jpg -->
+                        <img src="commando-card.jpg" alt="Israeli Commando" class="character-image">
+                        <h3>The Commando</h3>
+                        <p>You are part of the elite Sayeret Matkal unit under Yoni Netanyahu. Your mission: storm the terminal and rescue the hostages. One mistake could cost lives.</p>
+                    </div>
+                    <div class="character-card" onclick="startPath('hostage')">
+                        <!-- Upload as: hostage-card.jpg -->
+                        <img src="hostage-card.jpg" alt="Hostages at Entebbe" class="character-image">
+                        <h3>The Hostage</h3>
+                        <p>You are among the 106 captives held in the old terminal. Every sound could mean rescue or execution. Can you stay calm and help others survive?</p>
+                    </div>
+                    <div class="character-card" onclick="startPath('commander')">
+                        <!-- Upload as: commander-card.jpg -->
+                        <img src="commander-card.jpg" alt="Israeli Commander" class="character-image">
+                        <h3>The Commander</h3>
+                        <p>You are Major General Dan Shomron, overseeing the operation. Every decision—timing, tactics, contingencies—rests on your shoulders. Lives depend on your judgment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMANDO PATH -->
+            <div id="commando-1" class="scene">
+                <p class="date-stamp">July 3, 1976 - 23:00 hrs - En route to Entebbe</p>
+                
+                <!-- Upload as: c130-hercules.jpg -->
+                <img src="c130-hercules.jpg" alt="C-130 Hercules Transport" class="scene-image">
+                
+                <div class="narrative">
+                    <p>The C-130 Hercules transport plane vibrates as you fly in darkness toward Uganda. Around you, your fellow commandos check their weapons in silence. Some sleep. Others stare into nothing.</p>
+                    <p>Lieutenant Colonel Yoni Netanyahu briefs the assault team one final time. "The old terminal. Four hostage-takers inside, maybe more. Ugandan soldiers nearby. We land, we drive the Mercedes to the terminal posing as Idi Amin's convoy, we eliminate the terrorists, we evacuate the hostages. Eleven minutes on the ground. Questions?"</p>
+                    <p>You think about the plan. The intelligence suggests there are four terrorists, but rumors say there might be more. The element of surprise is everything.</p>
+                    <p><strong>What is your priority as the plane approaches?</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-2a')">Review the terminal layout one more time. Knowledge is survival.</button>
+                    <button class="choice-btn" onclick="goToScene('commando-2b')">Check your weapon and equipment. Reliability in combat is everything.</button>
+                    <button class="choice-btn" onclick="goToScene('commando-2c')">Talk to Yoni about potential complications. Communication saves lives.</button>
+                </div>
+            </div>
+
+            <div id="commando-2a" class="scene">
+                <div class="narrative">
+                    <p>You pull out the terminal blueprints, studying them by red light. The main hall, the exits, the likely positions of the terrorists. You visualize the assault sequence.</p>
+                    <p>Yoni notices and nods approvingly. "Good. When we enter, you take the left corridor. Speed and precision."</p>
+                    <p>The plane descends. You feel the wheels touch down. The rear ramp opens. The black Mercedes and Land Rovers drive out onto the Entebbe tarmac. Ugandan sentries wave—they think you're a Ugandan convoy.</p>
+                    <p><strong>The terminal is 300 meters ahead. Two sentries stand near the entrance.</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-sentries-eliminate')">Eliminate the armed sentries so that they cannot attack from behind.</button>
+                    <button class="choice-btn" onclick="goToScene('commando-sentries-ignore')">Ignore them - Yoni's deputy recalls from his time in Uganda that sentries would stand in this fashion as a type of salute.</button>
+                </div>
+            </div>
+
+            <div id="commando-sentries-eliminate" class="scene">
+                <div class="narrative">
+                    <p>This is actually what happened. Yoni tried to shoot the sentries with a silenced gun, but missed one and only succeeded in wounding the other. A commando from the Land Rover behind him managed to eliminate both, but with an unsilenced weapon.</p>
+                    <p>The raiding party was afraid that they had given away the element of surprise, but that doesn't seem to have been the case.</p>
+                    
+                    <!-- Upload as: terminal-assault.jpg -->
+                    <img src="terminal-assault.jpg" alt="Entebbe Terminal Assault" class="scene-image">
+                    
+                    <p>The Mercedes continues toward the terminal. You burst through the entrance. Inside, the terrorists are caught completely off-guard despite the gunshots outside. Your team engages with deadly precision.</p>
+                    <p>"Terrorists! Drop your weapons!" The shots are clean, professional. Within seconds, all four terrorists in the main hall are down.</p>
+                    <p>But then—more gunfire from outside. Ugandan soldiers responding. Yoni leads a suppression team while you shepherd hostages toward the waiting C-130s.</p>
+                    <p>You hear Yoni's voice over the radio: "Get them out! Move, move!" Then silence. Someone says, "Yoni's hit."</p>
+                </div>
+                <div class="outcome success">
+                    <p><strong>MISSION SUCCESS</strong></p>
+                    <p>All 102 hostages rescued. Four terrorists eliminated. Three hostages killed in the crossfire. One Israeli soldier killed: Lieutenant Colonel Yonatan Netanyahu, aged 30.</p>
+                    <p>The unsilenced shots at the sentries caused momentary concern, but the terrorists inside remained unaware until it was too late. The raid lasted 53 minutes and became legend—a demonstration of Israel's reach and resolve.</p>
+                    <p>Your actions under pressure helped save lives. You followed your training, adapted to complications, and got the hostages out. Yoni would have been proud.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="commando-sentries-ignore" class="scene">
+                <div class="narrative">
+                    <p>This option wasn't tried—we will never know.</p>
+                    <p>You decide to trust Yoni's deputy's assessment. The Mercedes drives past the sentries, who remain at attention. Perhaps they do think this is a ceremonial arrival. Perhaps they're simply confused.</p>
+                    <p>But what happens next is uncertain. Would the sentries have maintained their salute long enough for the assault to begin? Would they have raised the alarm? Would avoiding their elimination have preserved the element of surprise more completely, or would it have created a threat from behind?</p>
+                    <p>In the actual operation, the sentries were eliminated. That choice was made in the heat of the moment by soldiers who had to weigh split-second decisions against unknown risks.</p>
+                    <p>History only records what was done, not what might have been. The path not taken remains forever a mystery.</p>
+                </div>
+                <div class="outcome">
+                    <p><strong>HISTORICAL SPECULATION</strong></p>
+                    <p>This scenario represents a choice that wasn't made during the actual Operation Thunderbolt. The commandos chose to eliminate the sentries, despite complications with silenced weapons.</p>
+                    <p>Would ignoring them have worked? We can never know. What we do know is that the men who made these decisions in real-time, under enormous pressure, succeeded in rescuing 102 hostages from 2,500 miles away.</p>
+                    <p>Their choices—right or wrong, clean or messy—saved lives. That's what matters.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="commando-2b" class="scene">
+                <div class="narrative">
+                    <p>You fieldstrip your Uzi, checking every component. Magazine loaded. Bolt action smooth. Backup magazine secured. You're ready.</p>
+                    <p>The plane touches down. The operation begins. The Mercedes drives out with you inside, heading toward the terminal. Behind you, more commandos in Land Rovers.</p>
+                    <p>You see the terminal ahead—a white building glowing in the darkness. <strong>Two Ugandan sentries lounge near the entrance, rifles slung.</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-sentries-eliminate')">Eliminate the armed sentries so that they cannot attack from behind.</button>
+                    <button class="choice-btn" onclick="goToScene('commando-sentries-ignore')">Ignore them - Yoni's deputy recalls from his time in Uganda that sentries would stand in this fashion as a type of salute.</button>
+                </div>
+            </div>
+
+            <div id="commando-2c" class="scene">
+                <div class="narrative">
+                    <p>You approach Yoni. "Sir, if there are more terrorists than we think, or if Ugandan forces respond faster—"</p>
+                    <p>Yoni cuts you off, but not harshly. "We adapt. That's why you're here. Keep your eyes open, communicate what you see."</p>
+                    <p>Minutes later, you're on Ugandan soil. The Mercedes carries your team toward the terminal. Everything seems quiet. Too quiet.</p>
+                    <p>You spot the sentries. Then, through the terminal windows, you see shadows moving. More than four.</p>
+                    <p>You radio the update to Yoni and all teams. "Possible additional hostiles inside. Adjusting for six to eight targets."</p>
+                    <p>Yoni acknowledges: "Good work. Teams, weapons hot. We adapt."</p>
+                    <p><strong>The terminal is 300 meters ahead. Two sentries stand near the entrance.</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-sentries-eliminate')">Eliminate the armed sentries so that they cannot attack from behind.</button>
+                    <button class="choice-btn" onclick="goToScene('commando-sentries-ignore')">Ignore them - Yoni's deputy recalls from his time in Uganda that sentries would stand in this fashion as a type of salute.</button>
+                </div>
+            </div>
+
+            <div id="commando-success-1" class="scene">
+                <div class="narrative">
+                    <p>The Mercedes screeches to a halt at the terminal entrance. Doors burst open. Your team pours out, weapons up.</p>
+                    <p>"Terrorists! Drop your weapons!" someone shouts in Hebrew and Arabic.</p>
+                    <p>Two terrorists reach for their guns. Your training takes over. Precise shots. They fall. Inside the terminal, screaming. Hostages hit the floor. Two more terrorists appear from a side room—you and your team engage.</p>
+                    <p>Eleven seconds. Four terrorists neutralized. But then—gunfire from outside. Ugandan soldiers.</p>
+                    <p>Yoni leads a team to suppress them. You hear his voice: "Get the hostages moving! Now!"</p>
+                    <p>You shepherd terrified civilians toward the waiting C-130s. Children crying, adults stumbling. Behind you, sustained gunfire. Then—silence.</p>
+                    <p>Someone says, "Yoni's hit."</p>
+                </div>
+                <div class="outcome success">
+                    <p><strong>MISSION SUCCESS</strong></p>
+                    <p>All 102 hostages rescued. Four terrorists eliminated. Three hostages killed in the crossfire. One Israeli soldier killed: Lieutenant Colonel Yonatan Netanyahu, aged 30.</p>
+                    <p>The raid lasted 53 minutes. It became legend—a demonstration of Israel's reach and resolve. But the price was Yoni's life, and he would never see his son grow up.</p>
+                    <p>Your actions under pressure helped save lives. You followed your training, adapted to threats, and got the hostages out. Yoni would have been proud.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="commando-partial-1" class="scene">
+                <div class="narrative">
+                    <p>You order the vehicles to stop 100 meters short. "We go on foot!"</p>
+                    <p>The team dismounts and approaches tactically. But the sentries spot you. One raises his rifle and shouts. The element of surprise is blown.</p>
+                    <p>Gunfire erupts. You eliminate the sentries, but inside the terminal, the terrorists have been alerted. They grab hostages as human shields.</p>
+                    <p>A firefight breaks out. Your team is skilled, but the terrorists are desperate. You breach the terminal, but by the time you secure it, the damage is done.</p>
+                </div>
+                <div class="outcome">
+                    <p><strong>PARTIAL SUCCESS</strong></p>
+                    <p>Mission compromised. 89 hostages rescued, but 13 killed during the firefight. Two Israeli soldiers wounded. The terrorists were eliminated, but the loss of hostages weighs heavily.</p>
+                    <p>The early approach sacrificed the element of surprise. In special operations, seconds and deception matter. The mission succeeded, but at a higher cost than necessary.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="commando-complication-1" class="scene">
+                <div class="narrative">
+                    <p>You barrel through at full speed. The sentries barely have time to react before the Mercedes is past them. But the noise alerts everyone inside.</p>
+                    <p>You crash through the terminal entrance. Terrorists spin around, weapons raised. You fire first, but one terrorist gets off a burst into the hostage area.</p>
+                    <p>The terminal becomes chaos. Your team clears the terrorists, but several hostages are wounded. The Ugandan forces respond quickly—too quickly. You're pinned down.</p>
+                    <p>Yoni makes the call: "Evacuate now!" Your team fights its way back to the planes with the hostages. It's messy, costly, but you get out.</p>
+                </div>
+                <div class="outcome">
+                    <p><strong>COSTLY SUCCESS</strong></p>
+                    <p>All terrorists eliminated. 95 hostages rescued. Seven hostages killed, five wounded. Two Israeli soldiers killed, including Yoni Netanyahu. Four soldiers wounded.</p>
+                    <p>The mission succeeded, but the lack of stealth turned the operation into a direct assault. Speed alone cannot replace tactical precision. The rescued hostages made it home, but the human cost was high.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="commando-disaster-1" class="scene">
+                <div class="narrative">
+                    <p>You decide to wait, not wanting to cause confusion with an unconfirmed report. The Mercedes pulls up to the terminal.</p>
+                    <p>But your instinct was right. As your team enters, six terrorists appear—not four. They're more organized than expected. One opens fire immediately.</p>
+                    <p>Your team is caught in a crossfire. The terrorists have prepared for this. Two of your teammates fall. The hostages panic, running in all directions.</p>
+                    <p>Yoni tries to rally the team, but a terrorist shoots him from an elevated position no one predicted. The operation collapses into chaos.</p>
+                </div>
+                <div class="outcome">
+                    <p><strong>MISSION FAILURE</strong></p>
+                    <p>The raid fails catastrophically. 48 hostages rescued, 58 killed in the crossfire or executed. Five Israeli soldiers killed, including Yoni Netanyahu. Eight wounded.</p>
+                    <p>Your hesitation to communicate critical intelligence cost lives. In special operations, information must flow instantly. Trust your instincts and your team. Silence in the face of uncertainty can be as deadly as the enemy.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <!-- COMMANDO REMEMBRANCE -->
+            <div id="commando-remembrance" class="scene">
+                <div class="narrative">
+                    <p>Years later, people will ask you about Operation Thunderbolt. They'll want to know about the heroes, the sacrifices, the people who made it possible.</p>
+                    <p><strong>Is there anyone from your commando group that you want to make sure is not forgotten?</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-remember-yoni')">Yoni Netanyahu</button>
+                    <button class="choice-btn" onclick="goToScene('commando-remember-sorin')">Sorin Hershko</button>
+                    <button class="choice-btn" onclick="goToScene('commando-remember-dora')">Dora Bloch</button>
+                    <button class="choice-btn" onclick="goToScene('commando-remember-maimoni')">Jean-Jacques Maimoni and Pasco Cohen</button>
+                </div>
+            </div>
+
+            <div id="commando-remember-yoni" class="scene">
+                <div class="narrative">
+                    <!-- Upload as: yoni-netanyahu.jpg -->
+                    <img src="yoni-netanyahu.jpg" alt="Yoni Netanyahu" class="portrait-image">
+                    
+                    <p><strong>Yoni Netanyahu</strong></p>
+                    <p>Of course. Yoni gave his life for the success of the mission. Hopefully the popularity of the books about him and the fact that the mission was named for him posthumously will assure that his sacrifice is long remembered.</p>
+                    <p>Lieutenant Colonel Yonatan "Yoni" Netanyahu was 30 years old when he died at Entebbe. He was the older brother of Benjamin Netanyahu, who would later become Prime Minister of Israel. Yoni was known for his leadership, courage, and unwavering commitment to his soldiers and his country.</p>
+                    <p>The mission was renamed "Operation Yonatan" in his honor. His letters and writings were published and became bestsellers in Israel. He remains a symbol of Israeli military valor and sacrifice.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="background: var(--accent); color: var(--bg-primary);">Remember Another Person</button>
+                    <button class="restart-btn" onclick="restart()">Begin Again</button>
+                </div>
+            </div>
+
+            <div id="commando-remember-sorin" class="scene">
+                <div class="narrative">
+                    <!-- Upload as: sorin-hershko.jpg -->
+                    <img src="sorin-hershko.jpg" alt="Sorin Hershko" class="portrait-image">
+                    
+                    <p><strong>Sorin Hershko</strong></p>
+                    <p>A tragic fate, indeed. Hershko was about to be released from army service when he was sent on this mission. While clearing the airport, Hershko was shot in the neck by a Ugandan soldier, and was left paralyzed from the neck down.</p>
+                    <p>With hard work, he learned to use a wheelchair, and received a medal for his sacrifice. He even went back to Entebbe many years later, but to this day he pays the price for the mission's success.</p>
+                    <p>Surin Hershko never let his injury define him. He became an advocate for disabled veterans, rebuilt his life with remarkable courage, and when he finally returned to Entebbe decades later, he said he had no regrets. He understood the stakes, and he knew the hostages' lives were worth the risk.</p>
+                    <p>His sacrifice reminds us that the cost of Operation Thunderbolt was not just measured in those who died, but also in those who lived with the consequences for the rest of their lives.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="background: var(--accent); color: var(--bg-primary);">Remember Another Person</button>
+                    <button class="restart-btn" onclick="restart()">Begin Again</button>
+                </div>
+            </div>
+
+            <div id="commando-remember-dora" class="scene">
+                <div class="narrative">
+                    <p><strong>Dora Bloch</strong></p>
+                    <p>Her story is very, very sad, but she was a hostage, not a commando. Perhaps you can find out about her if you ask a hostage.</p>
+                    <p>As a commando, you focused on the tactical aspects of the mission—the assault, the rescue, the extraction. But the hostages each had their own stories, their own struggles, their own fates.</p>
+                    <p>Dora Bloch's story is one that still haunts those who remember Entebbe. If you want to understand the full human cost of this operation, you should experience it from a hostage's perspective.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="background: var(--accent); color: var(--bg-primary);">Remember Another Person</button>
+                    <button class="choice-btn" onclick="startPath('hostage')" style="background: var(--bg-secondary); color: var(--text-primary);">Experience the Hostage Perspective</button>
+                    <button class="restart-btn" onclick="restart()">Return to Start</button>
+                </div>
+            </div>
+
+            <div id="commando-remember-maimoni" class="scene">
+                <div class="narrative">
+                    <p><strong>Jean-Jacques Maimoni and Pasco Cohen</strong></p>
+                    <p>Their fate was also very tragic, but they were hostages, not commandos. Why not ask a hostage to find out about them?</p>
+                    <p>As a commando, you were trained to focus on the mission—neutralize threats, secure hostages, extract safely. But each hostage had a name, a story, a life that was forever changed by those days in Entebbe.</p>
+                    <p>Jean-Jacques Maimoni and Pasco Cohen were among those who paid the ultimate price. Their stories deserve to be told, but from the perspective of those who lived through the captivity alongside them.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commando-remembrance')" style="background: var(--accent); color: var(--bg-primary);">Remember Another Person</button>
+                    <button class="choice-btn" onclick="startPath('hostage')" style="background: var(--bg-secondary); color: var(--text-primary);">Experience the Hostage Perspective</button>
+                    <button class="restart-btn" onclick="restart()">Return to Start</button>
+                </div>
+            </div>
+
+            <!-- HOSTAGE PATH -->
+            <div id="hostage-1" class="scene">
+                <p class="date-stamp">June 30, 1976 - Old Terminal, Entebbe Airport</p>
+                
+                <!-- Upload as: old-terminal.jpg -->
+                <img src="old-terminal.jpg" alt="Old Terminal at Entebbe" class="scene-image">
+                
+                <div class="narrative">
+                    <p>You sit on the floor of the old terminal, your back against a peeling wall. Around you, families huddle together. Children ask questions their parents can't answer. The air is thick with heat, fear, and exhaustion.</p>
+                    <p>The four terrorists patrol constantly. Two Palestinians, two Germans. Automatic weapons always visible. They separated you from the non-Jewish passengers days ago. Those people are gone now—released. You remain.</p>
+                    <p>Idi Amin visited yesterday, assuring everyone that he's "negotiating." But you saw him laughing with the hijackers.</p>
+                    <p>A woman near you, Mrs. Davidson, whispers, "Do you think Israel will pay? Will they give in to demands?"</p>
+                    <p>You've heard rumors. Some say a rescue is impossible. Others whisper that Israel never abandons its people.</p>
+                    <p><strong>The terrorists announced today is the final deadline. What do you do?</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('hostage-2a')">Stay calm and keep others calm. Panic helps no one.</button>
+                    <button class="choice-btn" onclick="goToScene('hostage-2b')">Try to observe the terrorists' routines. Information might be useful.</button>
+                    <button class="choice-btn" onclick="goToScene('hostage-2c')">Talk to other hostages about a possible escape attempt.</button>
+                </div>
+            </div>
+
+            <div id="hostage-2a" class="scene">
+                <div class="narrative">
+                    <p>You spend your time helping others. You play games with frightened children. You share food. You tell an elderly man that help is coming, even though you don't know if it's true.</p>
+                    <p>The Air France crew—bless them—refused to leave. Captain Michel Bacos said, "We stay with our passengers." Their courage helps everyone stay calm.</p>
+                    <p>Days pass. The deadline looms. Then, late on July 3rd, you hear it: aircraft engines. Different from usual.</p>
+                    <p>Before you can process it, explosions. Gunfire. Someone screams in Hebrew, "Get down! Israeli Defense Forces!"</p>
+                    <p>You drop to the floor, covering your head. Around you, chaos. Bullets crack through the air. You hear terrorists shouting, then falling silent.</p>
+                    <p>Hands grab you. "Move! Run to the plane!" You run. You don't look back.</p>
+                </div>
+                <div class="outcome success">
+                    <p><strong>RESCUED</strong></p>
+                    <p>You survive. You board the C-130 Hercules in a daze. You're flying home. Around you, other survivors weep with relief and grief.</p>
+                    <p>Your calm presence helped prevent panic during the raid. When the shooting started, those you'd comforted followed instructions and survived. Three hostages died, but 102 made it out.</p>
+                    <p>Years later, you'll learn that the raid's commander, Yoni Netanyahu, died protecting you. You'll never forget that sacrifice.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('hostage-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="hostage-2b" class="scene">
+                <div class="narrative">
+                    <p>You watch the terrorists carefully. You notice patterns. One checks the perimeter every 45 minutes. Another guards the main entrance. At night, they seem more relaxed.</p>
+                    <p>You memorize their positions, their weapon types, their blind spots. You don't know why you're doing this—what good is information when you're trapped?</p>
+                    <p>Then, on the night of July 3rd, you hear aircraft. Unusual activity outside. The terrorists become agitated.</p>
+                    <p>Suddenly—explosions. Gunfire. Israeli commandos burst in. You immediately understand the layout you memorized. "The fourth terrorist is behind that door!" you shout in Hebrew.</p>
+                    <p>A commando nods and moves. Three seconds later, the threat is neutralized. "Good call," he says, hurrying you toward the exit.</p>
+                </div>
+                <div class="outcome success">
+                    <p><strong>RESCUED - INTELLIGENCE CONTRIBUTION</strong></p>
+                    <p>Your careful observation helped the rescue team. Your warning about the fourth terrorist's position prevented an ambush that could have killed soldiers and hostages.</p>
+                    <p>You survive and return home. A military officer will later thank you personally for your "field intelligence." You helped save lives simply by staying alert and aware.</p>
+                    <p>Sometimes, courage isn't about action—it's about keeping your head when everyone else is losing theirs.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('hostage-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="hostage-2c" class="scene">
+                <div class="narrative">
+                    <p>You quietly approach a small group of younger men. "We should consider trying to escape," you whisper.</p>
+                    <p>One man, a former soldier, shakes his head. "Too dangerous. They have automatic weapons. We'd be cut down."</p>
+                    <p>Another agrees: "We wait. Israel is coming."</p>
+                    <p>But a third man, desperate and angry, likes your idea. Over the next day, you develop a risky plan. You'll rush one terrorist during a shift change, take his weapon, create chaos.</p>
+                    <p>On July 3rd, before you can act, you hear aircraft. Then—gunfire. Israeli commandos storm in.</p>
+                    <p>But your co-conspirator, in his panic and confusion, thinks this is his moment. He lunges toward a falling terrorist's weapon. A commando, not knowing his intent, fires.</p>
+                    <p>You survive the raid, but your would-be ally doesn't. The guilt haunts you.</p>
+                </div>
+                <div class="outcome">
+                    <p><strong>RESCUED - WITH REGRET</strong></p>
+                    <p>You made it out, but your escape planning had unintended consequences. In a hostage situation, unauthorized action during a rescue can be catastrophic.</p>
+                    <p>The commandos who rescued you were professionals executing a precise plan. When hostages deviate from "get down and stay down," they can be mistaken for threats.</p>
+                    <p>You learned a hard lesson: sometimes, patience and trust in rescue forces saves more lives than desperate action. You were lucky. Your friend wasn't.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('hostage-remembrance')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <!-- HOSTAGE REMEMBRANCE -->
+            <div id="hostage-remembrance" class="scene">
+                <div class="narrative">
+                    <p>Years later, when you tell people about those terrifying days in Entebbe, they'll ask about the others who were there with you. The ones who didn't all make it home. The ones whose stories deserve to be remembered.</p>
+                    <p><strong>Is there anyone from your fellow hostages that you want to make sure is not forgotten?</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('hostage-remember-sorin')">Sorin Hershko</button>
+                    <button class="choice-btn" onclick="goToScene('hostage-remember-dora')">Dora Bloch</button>
+                    <button class="choice-btn" onclick="goToScene('hostage-remember-maimoni')">Jean-Jacques Maimoni and Pasco Cohen</button>
+                </div>
+            </div>
+
+            <div id="hostage-remember-sorin" class="scene">
+                <div class="narrative">
+                    <p><strong>Sorin Hershko</strong></p>
+                    <p>A tragic fate, indeed, but Hershko was a commando, not a hostage. You'd find out more about him if you asked a commando.</p>
+                    <p>You remember hearing about him later—the young soldier who was shot during the raid and left paralyzed. But you never met him during your captivity. He was one of the brave men who came to save you.</p>
+                    <p>His story belongs to the commandos who fought alongside him. If you want to understand his sacrifice, you should experience the operation from their perspective.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('hostage-remembrance')" style="background: var(--accent); color: var(--bg-primary);">Remember Another Person</button>
+                    <button class="choice-btn" onclick="startPath('commando')" style="background: var(--bg-secondary); color: var(--text-primary);">Experience the Commando Perspective</button>
+                    <button class="restart-btn" onclick="restart()">Return to Start</button>
+                </div>
+            </div>
+
+            <div id="hostage-remember-dora" class="scene">
+                <div class="narrative">
+                    <!-- Upload as: dora-bloch.jpg -->
+                    <img src="dora-bloch.jpg" alt="Dora Bloch" class="portrait-image">
+                    
+                    <p><strong>Dora Bloch</strong></p>
+                    <p>Her story is very, very sad. An elderly woman, she choked on something during a meal and was taken to a hospital. She was ready to return to the other hostages, but a kind doctor, thinking he was sparing her a grisly fate, kept her in the hospital.</p>
+                    <p>She was still in the hospital when the rescue took place. Idi Amin was so furious at the humiliation he underwent that he ordered her dragged from her bed and executed.</p>
+                    <p>Dora Bloch was 75 years old. She was a British-Israeli dual citizen and the mother-in-law of a prominent Israeli. The British government protested her murder, but Amin denied everything. Her body was never officially recovered, though witnesses later confirmed she had been killed and buried in a sugar plantation.</p>
+                    <p>She survived the hijacking, survived the captivity, and was murdered in cold blood simply because a dictator needed to lash out at someone. Her death remains one of the most haunting aspects of Operation Thunderbolt.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('hostage-remembrance')" style="background: var(--accent); color: var(--bg-primary);">Remember Another Person</button>
+                    <button class="restart-btn" onclick="restart()">Begin Again</button>
+                </div>
+            </div>
+
+            <div id="hostage-remember-maimoni" class="scene">
+                <div class="narrative">
+                    <p><strong>Jean-Jacques Maimoni and Pasco Cohen</strong></p>
+                    <p>Their fate was also very tragic. When the Israeli commandos first burst into the airport terminal, they called out for all the hostages to stay down. Sadly, in the confusion, they stood up and were killed by friendly fire.</p>
+                    <p>Ida Borochovitch, another hostage, was killed by one of the hijackers in the firefight.</p>
+                    <p>Jean-Jacques Maimoni was 19 years old. Pasco Cohen was 52. Ida Borochovitch was 56. They survived days of terror, they were moments away from freedom, and they died in the chaos of their own rescue.</p>
+                    <p>These deaths haunt everyone who was there. The commandos who came to save you did everything they could, but in the fog of war, in the darkness and confusion, not everyone could be saved. You remember their faces. You remember waiting with them. You remember the moment everything went wrong.</p>
+                    <p>Their families received the news that rescue had succeeded—but not for everyone. These three hostages are why you can never call Operation Thunderbolt a perfect success, no matter how miraculous it was.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('hostage-remembrance')" style="background: var(--accent); color: var(--bg-primary);">Remember Another Person</button>
+                    <button class="restart-btn" onclick="restart()">Begin Again</button>
+                </div>
+            </div>
+
+            <!-- COMMANDER PATH -->
+            <div id="commander-1" class="scene">
+                <p class="date-stamp">July 1, 1976 - IDF HQ, Tel Aviv</p>
+                
+                <!-- Upload as: idf-war-room.jpg -->
+                <img src="idf-war-room.jpg" alt="IDF War Room Planning" class="scene-image">
+                
+                <div class="narrative">
+                    <p>As Major General Dan Shomron, you stand in the war room studying reconnaissance photos of Entebbe Airport. The mission everyone said was impossible is now your responsibility.</p>
+                    <p>Prime Minister Rabin gave final approval. Minister of Defense Peres is watching. The Chief of Staff expects success. And 106 Israeli citizens are counting on you to bring them home.</p>
+                    <p>Colonel Netanyahu's team will assault the old terminal. Other units will secure the new terminal, destroy Ugandan MiGs, and control the airfield. Four C-130 Hercules will land in darkness without permission from Uganda.</p>
+                    <p>Your intelligence officer reports: "Sir, we have reliable information on the terrorists' positions and schedules. But Ugandan military presence is uncertain. Could be two dozen soldiers, could be two hundred."</p>
+                    <p>The assault is scheduled for July 3rd, 23:00 hours. You have 48 hours to finalize the plan.</p>
+                    <p><strong>What is your focus?</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commander-2a')">Perfect the assault timing. Coordination is everything.</button>
+                    <button class="choice-btn" onclick="goToScene('commander-2b')">Develop contingency plans for Ugandan military response.</button>
+                    <button class="choice-btn" onclick="goToScene('commander-2c')">Rehearse the evacuation procedure. Getting out is as important as getting in.</button>
+                </div>
+            </div>
+
+            <div id="commander-2a" class="scene">
+                <div class="narrative">
+                    <p>You gather all unit commanders. "We go through this minute by minute," you say, laying out the timeline.</p>
+                    <p>23:00: First C-130 lands. 23:01: Vehicles roll out. 23:02: Terminal in sight. 23:03: Breach. 23:15: Hostages boarding. 23:30: Wheels up.</p>
+                    <p>Yoni Netanyahu presents his team's readiness. "We're ready, sir. Eleven minutes from touchdown to hostages secure."</p>
+                    <p>You drill the timing over and over. Every second matters. The Ugandans must be caught completely off-guard.</p>
+                    <p>July 3rd arrives. The operation launches. The C-130s land silently. The assault team reaches the terminal... perfectly on schedule. The terrorists are caught mid-shift change, exactly as your intelligence predicted.</p>
+                    <p>Eleven minutes later, Yoni radios: "Hostages secure. Moving to aircraft." Then—gunfire. A pause. "Yoni is down."</p>
+                    <p>Your heart sinks, but there's no time. "Continue evacuation! All units, execute withdrawal!"</p>
+                </div>
+                <div class="outcome success">
+                    <p><strong>OPERATION SUCCESSFUL</strong></p>
+                    <p>Your meticulous timing gave the assault team every advantage. The terrorists were neutralized before they could react. 102 hostages rescued. Three hostages killed in the crossfire. Yoni Netanyahu killed by a Ugandan sniper during withdrawal.</p>
+                    <p>The operation lasted 53 minutes. Your planning and coordination turned an impossible mission into a legendary success. But the price was high—Yoni's life, and the three hostages who didn't make it.</p>
+                    <p>In war rooms around the world, military planners will study your operation for decades. But you'll always remember the cost.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commander-hero')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="commander-2b" class="scene">
+                <div class="narrative">
+                    <p>You assign a dedicated team to plan for Ugandan military intervention. "Assume worst case: immediate response from their barracks, possible armored vehicles, heavy weapons."</p>
+                    <p>Your team develops a suppression plan. If Ugandan forces respond, a specialized unit will engage and delay them while the hostages evacuate. You position additional commandos to create a defensive perimeter.</p>
+                    <p>July 3rd. The operation begins. Your assault team hits the terminal perfectly. But as predicted, Ugandan soldiers respond within minutes. However, your suppression team is ready.</p>
+                    <p>A firefight erupts, but it's controlled. Your forces have positioned themselves to create a corridor for hostage evacuation. The Ugandans are kept at bay.</p>
+                    <p>All hostages board the C-130s. But during the withdrawal, Yoni Netanyahu is shot while leading a rear-guard action. He dies covering the evacuation.</p>
+                </div>
+                <div class="outcome success">
+                    <p><strong>TACTICAL EXCELLENCE</strong></p>
+                    <p>Your contingency planning saved the mission. When Ugandan forces responded, your teams were ready. All 102 hostages rescued. Three hostages killed during the initial assault. Yoni Netanyahu killed during withdrawal.</p>
+                    <p>Your ability to plan for multiple scenarios turned potential disaster into success. The operation succeeded despite enemy response because you anticipated complications.</p>
+                    <p>Leadership isn't about hoping for the best—it's about preparing for the worst.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commander-hero')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <div id="commander-2c" class="scene">
+                <div class="narrative">
+                    <p>You focus on the evacuation. "Getting in is dramatic," you tell your team. "But getting 102 panicked civilians onto aircraft in darkness, under potential fire, is where we could lose this mission."</p>
+                    <p>You rehearse evacuation procedures. Medical teams positioned. Clear routes marked. Soldiers assigned to guide specific groups. Aircraft crews briefed on rapid boarding.</p>
+                    <p>You even prepare for wounded hostages—stretchers, medical supplies, evacuation priorities.</p>
+                    <p>July 3rd. The assault goes perfectly. Terrorists neutralized. But as predicted, some hostages are wounded. The terminal is chaos—crying children, disoriented adults, injured people.</p>
+                    <p>Your preparation pays off. Your teams move smoothly, guiding hostages to aircraft. Medical teams handle casualties. Within 15 minutes, everyone is boarding.</p>
+                    <p>But Yoni stayed behind to ensure everyone got out. A Ugandan sniper's bullet finds him in the darkness.</p>
+                </div>
+                <div class="outcome success">
+                    <p><strong>HUMANITARIAN SUCCESS</strong></p>
+                    <p>Your focus on evacuation saved lives. All 102 hostages rescued, including several who would have died without immediate medical attention. Three hostages killed during the assault. Yoni Netanyahu killed during final withdrawal.</p>
+                    <p>Special operations aren't just about violence—they're about saving lives under impossible conditions. Your emphasis on evacuation procedures ensured no one was left behind and that wounded hostages received immediate care.</p>
+                    <p>Yoni died doing what he believed in: ensuring every Israeli made it home. Your planning honored that commitment.</p>
+                </div>
+                <button class="choice-btn" onclick="goToScene('commander-hero')" style="margin-top: 20px; background: var(--bg-primary);">Continue...</button>
+            </div>
+
+            <!-- COMMANDER HERO QUESTION -->
+            <div id="commander-hero" class="scene">
+                <div class="narrative">
+                    <p>As the commander of this operation, you've seen extraordinary courage from many people—soldiers, hostages, even civilians who helped. History will remember this mission, but the question remains:</p>
+                    <p><strong>Who do you think was the biggest hero of this story?</strong></p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commander-hero-yoni')">Yoni Netanyahu</button>
+                    <button class="choice-btn" onclick="goToScene('commander-hero-sorin')">Sorin Hershko</button>
+                    <button class="choice-btn" onclick="goToScene('commander-hero-bacos')">Michel Bacos</button>
+                    <button class="choice-btn" onclick="goToScene('commander-hero-ninnette')">Ninnette Morenu</button>
+                </div>
+            </div>
+
+            <div id="commander-hero-yoni" class="scene">
+                <div class="narrative">
+                    <p><strong>Yoni Netanyahu</strong></p>
+                    <p>Of course that is the obvious answer—Yoni gave up his life and all of his unfulfilled dreams. Yet I find some comfort in knowing that this was exactly the way Yoni wanted to live his life.</p>
+                    <p>In a 1963 letter, he wrote: <em>"The trouble with the youth here is that their lives are meager in content. I ought to be ready at every moment of my life to confront myself and say—'This is what I've done.'"</em></p>
+                    <p>Yoni lived by those words. Every moment of his life had meaning. Every decision reflected his values. When he led his team into Entebbe, he wasn't just following orders—he was living out his deepest convictions about duty, courage, and protecting his people.</p>
+                    <p>He died at age 30, but he lived more fully in those 30 years than most people do in 80. That's not a consolation for his loss, but it's a testament to who he was. The mission bears his name now: Operation Yonatan. That's fitting. He embodied everything it represented.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commander-hero')" style="background: var(--accent); color: var(--bg-primary);">Consider Another Hero</button>
+                    <button class="restart-btn" onclick="restart()">Begin Again</button>
+                </div>
+            </div>
+
+            <div id="commander-hero-sorin" class="scene">
+                <div class="narrative">
+                    <p><strong>Sorin Hershko</strong></p>
+                    <p>The way Sorin was shot and paralyzed by a Ugandan soldier meant that he was a hero every single day for the rest of his life, willing himself to go on, and achieving so much even in his incapacitated state.</p>
+                    <p>We gave him a medal and tried to give him all the veteran benefits he needed, but nothing can compensate him for what he lost.</p>
+                    <p>Yoni's heroism was concentrated in one moment—a bullet, a death, an end. Sorin's heroism has no end. Every morning he wakes up paralyzed. Every day he faces the reality of what he sacrificed. And every day he chooses to keep going.</p>
+                    <p>He learned to use a wheelchair. He rebuilt his life. He advocated for other disabled veterans. Decades later, he even returned to Entebbe—not to relive trauma, but to show that the operation hadn't broken him.</p>
+                    <p>When people ask me about heroes, I think of Sorin. Because heroism isn't just about what you're willing to die for—it's about what you're willing to live for, even when living is the harder choice.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commander-hero')" style="background: var(--accent); color: var(--bg-primary);">Consider Another Hero</button>
+                    <button class="restart-btn" onclick="restart()">Begin Again</button>
+                </div>
+            </div>
+
+            <div id="commander-hero-bacos" class="scene">
+                <div class="narrative">
+                    <!-- Upload as: michel-bacos.jpg -->
+                    <img src="michel-bacos.jpg" alt="Captain Michel Bacos" class="portrait-image">
+                    
+                    <p><strong>Michel Bacos</strong></p>
+                    <p>The pilot of the Air France plane refused to leave the hostages, even when the hijackers allowed him to. His example gave such inspiration to all of our hostages and showed them that they have many friends in the nations of the world.</p>
+                    <p>Captain Michel Bacos was French. He had no obligation to stay. The hijackers weren't targeting him—they were targeting Israelis and Jews. He could have walked away with the other non-Jewish passengers. No one would have blamed him.</p>
+                    <p>But he looked at his passengers—terrified, separated from their families, facing execution—and he said no. "I will not leave my passengers," he told the hijackers. His entire crew stayed with him.</p>
+                    <p>That decision changed everything for the hostages. They weren't alone. They had people who chose to stand with them, even at great personal risk. In those dark days in the terminal, Bacos and his crew provided food, comfort, and most importantly, solidarity.</p>
+                    <p>When the rescue succeeded, Bacos didn't seek glory. He simply said he'd done what any decent person would do. But we both know that's not true. Most people wouldn't have done what he did. That's what made him a hero.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commander-hero')" style="background: var(--accent); color: var(--bg-primary);">Consider Another Hero</button>
+                    <button class="restart-btn" onclick="restart()">Begin Again</button>
+                </div>
+            </div>
+
+            <div id="commander-hero-ninnette" class="scene">
+                <div class="narrative">
+                    <p><strong>Ninnette Morenu</strong></p>
+                    <p>Believe it or not, we might owe her more than anyone else! Because of her non-Jewish sounding name, the hijackers allowed her to leave with the non-Jewish passengers. She had carefully observed the layout of the terminal, the positioning of the guards, and many crucial details.</p>
+                    <p>She was able to sketch all that for the commandos, and her information made the military option a realistic choice.</p>
+                    <p>When Ninnette was released, she could have simply gone home, grateful to have survived. Instead, she immediately went to Israeli intelligence and provided detailed drawings of the terminal—the positions of doors, windows, where the terrorists stood guard, where the hostages slept.</p>
+                    <p>That intelligence was invaluable. We'd been working with architectural plans and satellite photos, but Ninnette gave us ground truth. She told us what the terrorists' routines were, when they were most alert, when they relaxed. Her information helped us refine our assault plan and probably saved lives.</p>
+                    <p>Years later, her son Emanuel became one of the most decorated and capable Israeli soldiers ever. Sadly and heroically, he gave his life in battle for his people. Some of his missions are still too classified to reveal to the public.</p>
+                    <p>A mother who helped save hostages, and a son who followed in her footsteps of service and sacrifice. The Morenu family embodies the best of what it means to serve something larger than yourself.</p>
+                </div>
+                <div class="choices">
+                    <button class="choice-btn" onclick="goToScene('commander-hero')" style="background: var(--accent); color: var(--bg-primary);">Consider Another Hero</button>
+                    <button class="restart-btn" onclick="restart()">Begin Again</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function goToScene(sceneId) {
+            // Hide all scenes
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.classList.remove('active');
+            });
+            
+            // Show the target scene
+            setTimeout(() => {
+                document.getElementById(sceneId).classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        }
+
+        function startPath(path) {
+            goToScene(path + '-1');
+        }
+
+        function restart() {
+            goToScene('start');
+        }
+
+        // Smooth scroll to top on restart
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });
+    </script>
